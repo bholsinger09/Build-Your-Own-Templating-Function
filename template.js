@@ -6,13 +6,14 @@
 
 function template(string, options) {
   var delimiter = {
-  	open: '<<! ',
-  	close: '>>!'
+  	open: '*(',
+  	close: ')*'
   };
   var templateStr = [];
   var i = 1;
   var endDelimiter = 0;
   var argumentsFunct = [];
+  argumentsFunct.length = 0;
   var endVariable, remainingVar;
 
   var stringInQuotes = function (string) {
@@ -57,7 +58,7 @@ function template(string, options) {
 };
 
 var string = "Hi, my name is Richard. And I *( emotion )* this *( thing )*!";
-var logResult = template( string,2 );
+var logResult = template( string );
 logResult( 'love', 'ice cream', 2 );
 
 
